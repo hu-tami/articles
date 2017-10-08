@@ -63,7 +63,7 @@ In this case you use `peek` which in fact can return `null` but the Kotlin compi
   E peek();
 ```
 
-it says that `peek` will return `E` which will lead Kotlin to believe that `E` is not nullable. This might be worked around in a future version of Kotlin but right now it *is important to keep this in mind* in your projects and use these interfaces like this:
+It says that `peek` will return `E` which will lead Kotlin to believe that `E` is not nullable. This might be worked around in a future version of Kotlin but right now it *is important to keep this in mind* in your projects and use these interfaces like this:
 
 ```kotlin
 val queue: Queue<String?> = LinkedList()
@@ -188,7 +188,7 @@ fun String.extractCustomerName() : String {
 ```
 
 Now everybody on your project will scratch their heads when they bump into this.
-So I think it is good if you think twice before you write extension functions but they can be really powerful. here are some examples which might be useful:
+So I think it is good if you think twice before you write extension functions but they can be really powerful. Here are some examples which might be useful:
 
 ```kotlin
 /**
@@ -244,13 +244,13 @@ fun consumeText(text: String, fn: StringConsumer) {
 }
 ```
 
-then you can use Java's SAM conversion to make this very simple:
+Then you can use Java's SAM conversion to make this very simple:
 
 ```java
 consumeText("foo", System.out::println);
 ```
 
-but then from the Kotlin side it becomes a mess:
+But then from the Kotlin side it becomes a mess:
 
 ```kotlin
 consumeText("foo", object: StringConsumer {
